@@ -1,29 +1,15 @@
 # Completion status
 
 - Status date: 2026-07-27
-- Repository state observed for this documentation slice: `main`, no commits yet
-- Release status: pre-release and incomplete
+- Validated implementation commit: `2259fbe487f9b24cca42fd92045081fe14ae72e9`
+- Release status: local release candidate validated; public GitHub publication pending
 
-## Scope completed in this slice
+## Scope completed
 
-The finalized `pdf-lib` StandardFonts implementation and parser contract were inspected before the
-release documentation and path contracts were updated. This slice changes:
-
-- `README.md`
-- `SECURITY.md`
-- `CONTRIBUTING.md`
-- `CHANGELOG.md`
-- `docs/key-packet-press/product.md`
-- `docs/key-packet-press/architecture.md`
-- `docs/key-packet-press/data-contract.md`
-- `docs/key-packet-press/privacy-safety-limits.md`
-- `docs/key-packet-press/completion-status.md`
-- `scripts/audit.mjs`, required-document paths only
-- `package.json`, the `files` documentation path only
-
-No application source, tests, dependency declarations, lockfile, proof JSON, completion handoff,
-durable queue, registry, lane state, automation configuration, or Git state was edited in this
-slice.
+The complete local application, tests, browser and PDF proof, release documentation, package
+metadata, and validation report are committed in the validated implementation commit above. The
+app-owned `proof/validation-receipt.json` binds its results to that exact commit. This documentation
+and receipt checkpoint follows the validated implementation without changing its product source.
 
 ## Implementation observed
 
@@ -50,18 +36,21 @@ Verification environment: Node.js `v23.6.0`, npm `11.6.0`.
 | `npm run lint` | Passed; 21 supported files checked, no fixes applied |
 | `npm run typecheck` | Passed |
 | `npm run test:unit` | Passed; 4 files and 64 tests |
+| `npm run test:component` | Passed; explicitly not applicable for the framework-free UI |
+| `npm run build` | Passed |
 | `npm run audit` | Passed; focused docs, local-only source, file workflow, and dependency licenses verified |
+| `npm run test:e2e` | Passed; 6 of 6 Playwright projects |
 | `npm pack --dry-run --json` | Passed; all six focused `docs/key-packet-press` files included |
 
-These focused results do not replace the pending build, E2E, visual, clean-install, dependency, and
-release-receipt matrix.
+`npm ci`, `npm audit --audit-level=high`, `npm ls --all`, package dry-run, deterministic PDF
+generation, and staged-diff checks also passed. The full command and evidence are recorded in
+`proof/validation-report.md` and `proof/validation-receipt.json`.
 
-## Earlier evidence boundary
+## Visual evidence boundary
 
-The pre-existing automation handoff reports 6 of 6 Playwright projects passing, passing dependency
-checks, and no externally initiated browser requests in the E2E scenario. Those browser and
-dependency results predate this documentation slice. Existing screenshots and a representative
-rendered PDF still require direct visual inspection before release.
+All 11 final browser screenshots were inspected after the final passing Playwright run. Six
+deterministic PDFs were generated twice with matching hashes, and all 23 rendered pages were
+inspected. No real guest or production data was used.
 
 ## Release-contract reconciliation
 
@@ -76,13 +65,12 @@ rendered PDF still require direct visual inspection before release.
 
 | Evidence | Current status |
 |---|---|
-| Final local validation run | Pending |
-| Screenshot-by-screenshot inspection | Pending |
-| Rendered-PDF page inspection | Pending |
-| Release-validation JSON | Not established by this slice |
-| Validation receipt | Not established by this slice |
-| Clean committed worktree | Not established; repository has no commits |
-| Final local SHA | Not available |
+| Final local validation run | Passed |
+| Screenshot-by-screenshot inspection | Passed; 11/11 |
+| Rendered-PDF page inspection | Passed; 23/23 |
+| Release-validation report | Present at `proof/validation-report.md` |
+| Validation receipt | Present at `proof/validation-receipt.json`; binds validated source commit |
+| Validated implementation commit | `2259fbe487f9b24cca42fd92045081fe14ae72e9` |
 | Public GitHub repository | Not established |
 | Remote SHA readback | Not available |
 | Hosted deployment | None established |
@@ -94,13 +82,7 @@ rendered PDF still require direct visual inspection before release.
 
 ## Remaining release work
 
-1. Run and record formatting, lint, type checking, unit tests, build, dependency audit, release
-   audit, and Playwright E2E from the intended release source.
-2. Inspect every responsive light/dark screenshot and every page of a representative synthetic PDF.
-3. Create and verify the required release-validation and validation-receipt artifacts.
-4. Review the complete diff, commit a coherent source state, and record the exact local SHA.
-5. Publish only after all gates pass, then verify the public repository and matching remote SHA.
-6. Complete the authorized registry, lane, queue, and automation closeout separately.
-
-No final SHA should be added to this document until it has been read directly from the committed
-source and, after publication, verified against the remote.
+1. Commit this app-owned receipt and documentation checkpoint on `main`.
+2. Publish through the authorized scoped helper, then verify public visibility, default branch, and
+   matching local/remote SHA.
+3. Complete the authorized registry, lane, queue, automation-memory, and handoff closeout.

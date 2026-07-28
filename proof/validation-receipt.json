@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "automation_id": "1000-apps-lane-16-hospitality-travel-events",
+  "lane": "lane-16",
+  "app": "key-packet-press",
+  "claim_id": "20260727T172616-0700-lane16-key-packet-press",
+  "validated_at": "2026-07-28T02:06:40Z",
+  "validated_commit": "2259fbe487f9b24cca42fd92045081fe14ae72e9",
+  "branch": "main",
+  "tests_passed": true,
+  "secret_scan_passed": true,
+  "license_check_passed": true,
+  "package_install_smoke_passed": true,
+  "local_workflow_proof": {
+    "status": "passed",
+    "data": "synthetic CSV fixtures only",
+    "result": "Automatic local processing produced an inline result and a parseable downloaded PDF; review and malformed inputs failed closed."
+  },
+  "browser_proof": {
+    "status": "passed",
+    "framework": "Playwright",
+    "projects": 6,
+    "screenshots": [
+      "proof/browser/desktop-light.png",
+      "proof/browser/desktop-dark.png",
+      "proof/browser/tablet-light.png",
+      "proof/browser/tablet-dark.png",
+      "proof/browser/phone-light.png",
+      "proof/browser/phone-dark.png",
+      "proof/browser/downloaded-desktop-light.png",
+      "proof/browser/review-blocked-desktop-light.png",
+      "proof/browser/file-error-desktop-light.png",
+      "proof/browser/focus-visible-desktop-light.png",
+      "proof/browser/download-focus-visible-desktop-light.png"
+    ],
+    "inspected": true,
+    "accessibility": "Axe serious, critical, and color-contrast checks passed.",
+    "network": "No non-local request was observed."
+  },
+  "pdf_proof": {
+    "status": "passed",
+    "artifacts": 6,
+    "rendered_pages": 23,
+    "inspected": true,
+    "deterministic": true,
+    "format": "Unencrypted US Letter PDF 1.7 with no forms or JavaScript.",
+    "hashes": {
+      "01-one-packet.pdf": "874ec53ad0918a4a0b5d8d1a1e1e9ab062280aa7029472caff7fa05cd8e75ada",
+      "04-four-packets.pdf": "61e3e141cc1b7f4df1c4357e39495129f6675ff9ba7b0ad19cd2dabdcde582e3",
+      "05-five-packets-with-staff-index.pdf": "9deda019b1ce00ba5ba4861c92cea5718755c3ef21cc3e33a8ce11bd26e52861",
+      "20-index-row-boundary.pdf": "ff0132d85035b40854171629fbacce92c67b93bf27182662301161235be24e87",
+      "21-index-page-overflow.pdf": "01dadb4f1448030330ddf12a6096e57d5a89bc1d42011392a20f38d9de1bbfb4",
+      "longest-practical-guest-label.pdf": "70762deec1410c62fc6c9e1bf7e120de7f014ec2b1c23e16339c52b55c584b12"
+    }
+  },
+  "commands": [
+    "npm ci",
+    "npm run validate",
+    "npm audit --audit-level=high",
+    "npm ls --all",
+    "npm pack --dry-run --json",
+    "npm run proof:pdf",
+    "pdfinfo against all six proof PDFs",
+    "git diff --cached --check"
+  ],
+  "results": {
+    "unit_tests": "64 passed across 4 files",
+    "component_tests": "not applicable because the UI is framework-free and has no React component layer",
+    "e2e": "6 Playwright projects passed",
+    "browser_screenshots": "11 inspected and passed",
+    "pdf_artifacts": "6 generated deterministically",
+    "pdf_pages": "23 rendered pages inspected and passed",
+    "format": "passed",
+    "lint": "passed",
+    "types": "passed",
+    "build": "passed",
+    "dependency_audit": "zero vulnerabilities",
+    "dependency_tree": "exit 0; expected platform and feature packages were listed as unmet optional dependencies",
+    "package_dry_run": "passed with 18 entries",
+    "required_files": "passed",
+    "secret_scan": "source, documentation, configuration, and built artifact scan passed",
+    "dependency_licenses": "passed"
+  },
+  "validation_environment": {
+    "operating_system": "macOS 26.3 (25D5112c)",
+    "node": "23.6.0 in the npm execution environment",
+    "npm": "11.6.0",
+    "browser": "Playwright Chromium",
+    "localhost": "http://127.0.0.1:4186"
+  },
+  "integrity": {
+    "classification": "synthetic-only",
+    "real_guest_data_used": false,
+    "fixtures": "Synthetic CSV and deterministic PDF proof scenarios",
+    "localhost_integrity": "No console error, page error, external request, cookie, local storage, or session storage was observed.",
+    "validated_tree": "Commit 2259fbe487f9b24cca42fd92045081fe14ae72e9 on main was clean after commit."
+  },
+  "warning_triage": {
+    "format_retry": "The first full command stopped on one formatter-only array layout; the formatter changed one file and the full command then passed.",
+    "optional_dependencies": "npm listed expected non-current platform and optional feature packages; npm ls exited 0.",
+    "built_bundle": "Vite local module-preload fetch and one exact static pdf-lib project-metadata URL were reviewed; Playwright proved no non-local request.",
+    "warnings_suppressed": false
+  },
+  "proof_fields": {
+    "local_artifact": "passed",
+    "local_workflow": "passed",
+    "github_publication": "pending",
+    "hosted_application": "not_attempted",
+    "production_application": "not_attempted",
+    "provider": "not_attempted",
+    "payment": "not_attempted",
+    "revenue": "not_attempted",
+    "buyer_usage_demand": "not_proven"
+  }
+}

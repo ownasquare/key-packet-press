@@ -105,17 +105,17 @@ This record proves a local implementation and local validation candidate only.
 | External provider behavior | Not applicable and not proven |
 | Payment behavior | Not implemented and not proven |
 | Public GitHub publication | Pending |
-| Final local commit SHA | Pending |
+| Validated implementation commit | `2259fbe487f9b24cca42fd92045081fe14ae72e9` |
+| Validation receipt | Present at `proof/validation-receipt.json` |
 | Remote SHA/readback | Pending |
 | Buyer demand, usage, revenue, or product-market fit | Not proven |
 
 ## Commit and publication evidence
 
 - Local branch: `main`.
-- Repository state at documentation time: no commits yet.
-- Final commit SHA: unavailable and pending.
+- Validated implementation commit: `2259fbe487f9b24cca42fd92045081fe14ae72e9`.
+- Validation receipt: `proof/validation-receipt.json`.
 - Push/public repository evidence: pending.
-- Validation receipt: pending.
 - Central registry update: pending.
 - Lane queue/state completion: pending.
 
@@ -123,9 +123,10 @@ No publication, deployment, registry mutation, queue mutation, or lane-completio
 
 ## Remaining closeout work
 
-1. Run the final release validation from the intended committed source and write the validation receipt without weakening any gate.
-2. Commit the app and proof set, record the final local SHA, publish to the intended public GitHub remote, and verify the remote SHA/readback.
-3. Only after publication proof exists, update the program registry and lane state/queue using their governing automation protocol.
+1. Commit the validation receipt and current documentation checkpoint.
+2. Publish to the intended public GitHub remote and verify remote SHA/readback.
+3. Only after publication proof exists, update the program registry and lane state/queue using
+   their governing automation protocol.
 
 ## Files added by this documentation slice
 

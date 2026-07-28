@@ -5,35 +5,17 @@ alwaysApply: false
 
 # INVENTORY NEXT ITEMS
 
-## Item 1 — Produce the final validation receipt
-
-- **Who:** The next Codex release/validation agent responsible for Key Packet Press.
-- **What:** Run the complete release gate against the final intended source state and create the app-owned validation receipt required by the lane protocol.
-- **How discovered:** Current local proof is complete, but no validation receipt exists and the final source has not yet been committed.
-- **Where:** `/Users/fortunevieyra/Documents/Github/ai-projects/factory-apps/lane-16/key-packet-press`; the required app-owned receipt path is `proof/validation-receipt.json`.
-- **When:** Before commit/publication is treated as release-complete and before any registry or lane-completion mutation.
-- **Detailed description:** Preserve the current minimum-interaction, local-only, synthetic-data contract. Run formatting, lint, type checking, 64 unit tests, build/audit, six Playwright projects, deterministic PDF proof generation, and required artifact inspection from the exact source that will be committed. Record truthful command results, environment, scope, fixture use, and proof limitations. Do not convert localhost evidence into a hosted or production claim.
-- **Acceptance criteria:** Every required gate passes without suppression; the receipt identifies the exact tested source state and records 64/64 unit tests, 6/6 Playwright projects, 11 inspected browser screenshots, six deterministic PDFs, and 23 inspected rendered pages.
-- **Definition of done:** A schema-valid app-owned validation receipt exists, matches the final source/proof set, and contains no unsupported hosted, production, provider, payment, demand, or revenue claim.
-- **Reason/root cause:** The app is still a pre-publication local candidate, so a final SHA-bound receipt cannot yet exist.
-- **Priority:** P1.
-- **Priority rationale:** Publication and lane closeout must not proceed on an unbound or stale validation result.
-- **Regression prevention:** Bind the receipt to the exact final commit and retain the current 28/11 label limits, `StandardFonts`, local-only processing, and fail-closed parser/model behavior.
-- **Test assurance:** Require the full scripted release gate plus direct inspection of every current browser screenshot and all rendered PDF pages.
-- **Audit policies:** No warning suppression, no skipped failing project, no real guest data, no secret material, and no production-status inference from localhost.
-- **Other considerations:** E2E and proof-generation commands rewrite checked-in proof artifacts; run them deliberately before final commit and review the resulting diff.
-
-## Item 2 — Commit and publish the verified source
+## Item 1 — Commit and publish the verified source
 
 - **Who:** The next authorized Git/GitHub publication agent.
-- **What:** Create the final local commit, capture its SHA, publish the intended repository/branch, and verify remote readback.
-- **How discovered:** Git readback reports branch `main` with no commits; no final local SHA, remote SHA, or public repository proof is available.
-- **Where:** App root above and the intended public GitHub remote selected by the lane publication protocol.
-- **When:** After Item 1 passes against the exact intended source/proof set and before Item 3.
-- **Detailed description:** Review scope, commit the validated app and its evidence intentionally, push without altering validated files, and independently read back the remote repository, branch, commit SHA, visibility, and expected files. Keep publication distinct from hosting; no deployment is requested or proven.
+- **What:** Commit the app-owned validation receipt and documentation checkpoint, publish the intended repository/branch, and verify remote readback.
+- **How discovered:** The validated implementation commit and receipt exist, but no public repository or remote SHA proof is available.
+- **Where:** App root above and `ownasquare/key-packet-press`.
+- **When:** Before Item 2.
+- **Detailed description:** The receipt at `proof/validation-receipt.json` binds validation to implementation commit `2259fbe487f9b24cca42fd92045081fe14ae72e9`. Commit the receipt and documentation checkpoint, require a clean `main`, publish through the scoped helper, and independently read back repository visibility, default branch, and remote SHA. Keep publication distinct from hosting; no deployment is requested or proven.
 - **Acceptance criteria:** The local final SHA and remote SHA match, the public repository is readable, and the two completion artifacts plus validated source/tests/proof are present at that SHA.
 - **Definition of done:** Public GitHub URL and exact matching SHA are recorded in the validation/closeout evidence; no uncommitted release file remains.
-- **Reason/root cause:** The current repository has not been committed or published.
+- **Reason/root cause:** Publication is the remaining external release gate.
 - **Priority:** P1.
 - **Priority rationale:** Public-source and completion claims require immutable remote evidence.
 - **Regression prevention:** Do not regenerate or silently modify proof between validation and commit; if anything changes, rerun the affected gates and refresh the receipt.
@@ -41,13 +23,13 @@ alwaysApply: false
 - **Audit policies:** Never claim hosted/production status merely because GitHub publication succeeded; never expose secrets or real guest data.
 - **Other considerations:** Record both the repository URL and commit permalink so later registry checks do not depend on a mutable branch head.
 
-## Item 3 — Complete registry and lane closeout
+## Item 2 — Complete registry and lane closeout
 
 - **Who:** The authorized `1000-apps-lane-16-hospitality-travel-events` automation or its continuation agent.
 - **What:** Update the central app registry and the lane state/queue only after receipt and remote publication evidence are complete.
 - **How discovered:** The claim exists, but registry publication, lane completion, validation receipt, and final SHA remain pending.
 - **Where:** Claim record: `/Users/fortunevieyra/Documents/Github/ai-projects/docs/1000-apps-100-days/registry/claims/20260727T172616-0700-lane16-key-packet-press.md`; governing state/queue/registry paths must be resolved from the lane automation protocol at execution time.
-- **When:** Strictly after Items 1 and 2.
+- **When:** Strictly after Item 1.
 - **Detailed description:** Re-read current shared state under the automation guard, reconcile the claim with the verified public URL and SHA, write only the authorized registry/state/queue fields, and preserve any concurrent work. Mark the app complete only when all required evidence is durable and read back.
 - **Acceptance criteria:** Registry entry points to the verified public repository and exact SHA; lane state/queue records a truthful completion without overwriting another claim or run.
 - **Definition of done:** Claim, registry, queue, and lane state agree; required post-run guard/receipt checks pass; completion is independently readable.
@@ -67,7 +49,7 @@ alwaysApply: false
 - **Automation:** `1000-apps-lane-16-hospitality-travel-events`.
 - **Claim:** `20260727T172616-0700-lane16-key-packet-press`.
 - **Purpose:** Turn a hotel/event rooming-list CSV into printable, privacy-conscious fold-in key packets and an internal staff assembly index.
-- **Current lifecycle position:** Local implementation and validation candidate complete; final receipt, commit, publication, registry, and lane closeout pending.
+- **Current lifecycle position:** Validated implementation and app-owned receipt complete; receipt commit, publication, registry, and lane closeout pending.
 
 The product targets a narrow operational pain: staff repeatedly handwrite guest names and room assignments on key packets. This artifact proves engineering readiness locally; it does not prove buyer demand, usage, revenue, or product-market fit.
 
@@ -105,6 +87,7 @@ The app is a static Vite/TypeScript browser application:
 - Corrected proof presentation so the download-focus image visibly shows the focused download action.
 - Verified that the overflow staff-index continuation page repeats internal-use warnings, reprint guidance, generation time, headings, and page numbering.
 - Added the dated local completion record and this continuation handoff without intentionally changing source, tests, proof, package, shared state, queue, registry, or Git history.
+- Committed validated implementation `2259fbe487f9b24cca42fd92045081fe14ae72e9` and created the app-owned receipt for that exact source state.
 
 # 5 Testing, Validation & Quality Framework — ✅ High
 
@@ -154,7 +137,7 @@ The final continuation agent must use the secret-safe launcher required by `/Use
 # 8 Risks, Technical Debt & Strict Preservation Rules — ✅ High
 
 - **Publication gap:** No commit or public remote currently anchors the proof.
-- **Receipt gap:** No final SHA-bound validation receipt exists.
+- **Receipt state:** `proof/validation-receipt.json` binds to validated implementation commit `2259fbe487f9b24cca42fd92045081fe14ae72e9`; preserve it.
 - **External evidence gap:** There is no hosted, production, provider, payment, or demand evidence.
 - **Sensitive-data risk:** Never add a real guest rooming list to fixtures, screenshots, logs, PDFs, commits, or issues.
 - **Contract regression risk:** Do not add Run/Continue/Next, field mapping, authentication, onboarding, or result-navigation steps.
@@ -186,11 +169,10 @@ The final continuation agent must use the secret-safe launcher required by `/Use
 
 # 10 Next Steps & Prioritized Backlog — ✅ High
 
-1. **P1 — Final receipt:** Run all required gates against the exact intended commit state and create the validation receipt.
-2. **P1 — Commit/publication:** Commit, record the local SHA, publish, and verify matching public remote readback.
-3. **P1 — Program closeout:** Under the automation guard, update the registry and lane state/queue with the verified public URL and SHA.
-4. **P2 — Post-publication smoke check, if the lane protocol requires one:** Verify public repository completeness. Do not reinterpret repository publication as a hosted app deployment.
-5. **P3 — Demand research:** Treat outreach, buyer interviews, adoption, revenue, and PMF as separate future evidence, not release validation.
+1. **P1 — Commit/publication:** Commit the receipt checkpoint, publish, and verify matching public remote readback.
+2. **P1 — Program closeout:** Under the automation guard, update the registry and lane state/queue with the verified public URL and SHA.
+3. **P2 — Post-publication smoke check, if the lane protocol requires one:** Verify public repository completeness. Do not reinterpret repository publication as a hosted app deployment.
+4. **P3 — Demand research:** Treat outreach, buyer interviews, adoption, revenue, and PMF as separate future evidence, not release validation.
 
 # 11 Continuation & Working Style Instructions — ✅ High
 
@@ -208,5 +190,5 @@ The final continuation agent must use the secret-safe launcher required by `/Use
 
 - **High confidence:** Current source architecture, minimum-interaction behavior, local-only boundary, 28/11 caps, `StandardFonts`, synthetic fixture use, unit count, Playwright project count, screenshot count, PDF count, and rendered-page count were read from the current app tree and proof inventory.
 - **High confidence:** All 11 browser screenshots and all 23 rendered PDF pages are recorded as inspected; the corrected download-focus and overflow continuation artifacts were directly rechecked after regeneration.
-- **High confidence:** No hosted, production, provider, payment, demand, public GitHub, final SHA, validation receipt, registry-completion, or lane-completion proof exists in this handoff.
+- **High confidence:** The local receipt and validated implementation SHA exist. No hosted, production, provider, payment, demand, public GitHub, remote SHA, registry-completion, or lane-completion proof exists in this handoff.
 - **Freshness:** This handoff reflects the local workspace on 2026-07-27. Re-read Git status, proof timestamps, final gate output, automation claim, and central shared state before any publication or closeout mutation.
