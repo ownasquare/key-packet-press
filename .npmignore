@@ -1,0 +1,6 @@
+node_modules/
+tests/
+test-results/
+playwright-report/
+proof/browser/
+docs/superpowers/

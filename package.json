@@ -1,0 +1,49 @@
+{
+  "name": "key-packet-press",
+  "version": "0.1.0",
+  "description": "Turn a finalized rooming-list CSV into privacy-aware fold-in key-packet inserts and an internal assembly index.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "docs/key-packet-press"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4186",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4186",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:component": "node scripts/component-not-applicable.mjs",
+    "test:e2e": "npm run build && playwright test",
+    "proof:pdf": "vite-node scripts/generate-pdf-proof.ts",
+    "audit": "node scripts/audit.mjs",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run test:unit && npm run test:component && npm run build && npm run audit && npm run test:e2e"
+  },
+  "dependencies": {
+    "pdf-lib": "1.17.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "@biomejs/biome": "2.5.5",
+    "@playwright/test": "1.62.0",
+    "@types/node": "24.1.0",
+    "happy-dom": "20.11.1",
+    "typescript": "5.8.3",
+    "vite": "7.3.6",
+    "vitest": "3.2.7"
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Turn a finalized rooming-list CSV into privacy-aware fold-in key-packet inserts."
+    />
+    <title>Key Packet Press</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <p class="product-mark">KEY PACKET PRESS</p>
+        <h1>Turn a final rooming list into ready-to-fold key packets.</h1>
+        <p class="privacy-line">Your CSV stays in this browser.</p>
+      </header>
+
+      <main class="tool" aria-labelledby="tool-title">
+        <h2 id="tool-title" class="visually-hidden">Make key packet inserts</h2>
+        <div id="drop-zone" class="drop-zone">
+          <input
+            id="rooming-list"
+            class="file-input"
+            type="file"
+            accept=".csv,text/csv"
+            aria-label="Drop or choose your final rooming-list CSV"
+          />
+          <div class="drop-content" aria-hidden="true">
+            <span class="file-glyph">CSV</span>
+            <span id="drop-title" class="drop-title">Drop or choose your final CSV</span>
+            <span id="file-detail" class="drop-detail">Guest or party + room number</span>
+          </div>
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite">
+          Ready for a finalized rooming list.
+        </p>
+        <section id="result" class="result" aria-live="polite"></section>
+      </main>
+
+      <footer>
+        Uses only the rooming list you provide · No room assignment or key encoding
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

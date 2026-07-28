@@ -1,0 +1,212 @@
+---
+description: Continuation handoff for the validated local Key Packet Press release candidate
+alwaysApply: false
+---
+
+# INVENTORY NEXT ITEMS
+
+## Item 1 — Produce the final validation receipt
+
+- **Who:** The next Codex release/validation agent responsible for Key Packet Press.
+- **What:** Run the complete release gate against the final intended source state and create the app-owned validation receipt required by the lane protocol.
+- **How discovered:** Current local proof is complete, but no validation receipt exists and the final source has not yet been committed.
+- **Where:** `/Users/fortunevieyra/Documents/Github/ai-projects/factory-apps/lane-16/key-packet-press`; the required app-owned receipt path is `proof/validation-receipt.json`.
+- **When:** Before commit/publication is treated as release-complete and before any registry or lane-completion mutation.
+- **Detailed description:** Preserve the current minimum-interaction, local-only, synthetic-data contract. Run formatting, lint, type checking, 64 unit tests, build/audit, six Playwright projects, deterministic PDF proof generation, and required artifact inspection from the exact source that will be committed. Record truthful command results, environment, scope, fixture use, and proof limitations. Do not convert localhost evidence into a hosted or production claim.
+- **Acceptance criteria:** Every required gate passes without suppression; the receipt identifies the exact tested source state and records 64/64 unit tests, 6/6 Playwright projects, 11 inspected browser screenshots, six deterministic PDFs, and 23 inspected rendered pages.
+- **Definition of done:** A schema-valid app-owned validation receipt exists, matches the final source/proof set, and contains no unsupported hosted, production, provider, payment, demand, or revenue claim.
+- **Reason/root cause:** The app is still a pre-publication local candidate, so a final SHA-bound receipt cannot yet exist.
+- **Priority:** P1.
+- **Priority rationale:** Publication and lane closeout must not proceed on an unbound or stale validation result.
+- **Regression prevention:** Bind the receipt to the exact final commit and retain the current 28/11 label limits, `StandardFonts`, local-only processing, and fail-closed parser/model behavior.
+- **Test assurance:** Require the full scripted release gate plus direct inspection of every current browser screenshot and all rendered PDF pages.
+- **Audit policies:** No warning suppression, no skipped failing project, no real guest data, no secret material, and no production-status inference from localhost.
+- **Other considerations:** E2E and proof-generation commands rewrite checked-in proof artifacts; run them deliberately before final commit and review the resulting diff.
+
+## Item 2 — Commit and publish the verified source
+
+- **Who:** The next authorized Git/GitHub publication agent.
+- **What:** Create the final local commit, capture its SHA, publish the intended repository/branch, and verify remote readback.
+- **How discovered:** Git readback reports branch `main` with no commits; no final local SHA, remote SHA, or public repository proof is available.
+- **Where:** App root above and the intended public GitHub remote selected by the lane publication protocol.
+- **When:** After Item 1 passes against the exact intended source/proof set and before Item 3.
+- **Detailed description:** Review scope, commit the validated app and its evidence intentionally, push without altering validated files, and independently read back the remote repository, branch, commit SHA, visibility, and expected files. Keep publication distinct from hosting; no deployment is requested or proven.
+- **Acceptance criteria:** The local final SHA and remote SHA match, the public repository is readable, and the two completion artifacts plus validated source/tests/proof are present at that SHA.
+- **Definition of done:** Public GitHub URL and exact matching SHA are recorded in the validation/closeout evidence; no uncommitted release file remains.
+- **Reason/root cause:** The current repository has not been committed or published.
+- **Priority:** P1.
+- **Priority rationale:** Public-source and completion claims require immutable remote evidence.
+- **Regression prevention:** Do not regenerate or silently modify proof between validation and commit; if anything changes, rerun the affected gates and refresh the receipt.
+- **Test assurance:** Compare local and remote SHAs and read back representative source, test, documentation, and proof paths from the remote.
+- **Audit policies:** Never claim hosted/production status merely because GitHub publication succeeded; never expose secrets or real guest data.
+- **Other considerations:** Record both the repository URL and commit permalink so later registry checks do not depend on a mutable branch head.
+
+## Item 3 — Complete registry and lane closeout
+
+- **Who:** The authorized `1000-apps-lane-16-hospitality-travel-events` automation or its continuation agent.
+- **What:** Update the central app registry and the lane state/queue only after receipt and remote publication evidence are complete.
+- **How discovered:** The claim exists, but registry publication, lane completion, validation receipt, and final SHA remain pending.
+- **Where:** Claim record: `/Users/fortunevieyra/Documents/Github/ai-projects/docs/1000-apps-100-days/registry/claims/20260727T172616-0700-lane16-key-packet-press.md`; governing state/queue/registry paths must be resolved from the lane automation protocol at execution time.
+- **When:** Strictly after Items 1 and 2.
+- **Detailed description:** Re-read current shared state under the automation guard, reconcile the claim with the verified public URL and SHA, write only the authorized registry/state/queue fields, and preserve any concurrent work. Mark the app complete only when all required evidence is durable and read back.
+- **Acceptance criteria:** Registry entry points to the verified public repository and exact SHA; lane state/queue records a truthful completion without overwriting another claim or run.
+- **Definition of done:** Claim, registry, queue, and lane state agree; required post-run guard/receipt checks pass; completion is independently readable.
+- **Reason/root cause:** Central closeout is intentionally deferred so local implementation evidence cannot be mistaken for publication.
+- **Priority:** P1.
+- **Priority rationale:** This is required program bookkeeping, but it must follow evidence creation and publication.
+- **Regression prevention:** Use the automation guard discipline, re-read before write, preserve unrelated state, and never infer completion from a local report alone.
+- **Test assurance:** Validate registry schema, exact URL/SHA fields, claim ownership, and post-write readback.
+- **Audit policies:** Respect overlap/rate/resource guards; do not mutate shared state outside the authorized automation path; do not claim demand, payment, provider, hosted, or production proof.
+- **Other considerations:** If shared state has advanced or ownership conflicts, defer rather than overwrite and record the blocker.
+
+# 1 Project Identity & Strategic Context — ✅ High
+
+- **Product:** Key Packet Press.
+- **Location:** `/Users/fortunevieyra/Documents/Github/ai-projects/factory-apps/lane-16/key-packet-press`.
+- **Program lane:** Lane 16, hospitality/travel/events.
+- **Automation:** `1000-apps-lane-16-hospitality-travel-events`.
+- **Claim:** `20260727T172616-0700-lane16-key-packet-press`.
+- **Purpose:** Turn a hotel/event rooming-list CSV into printable, privacy-conscious fold-in key packets and an internal staff assembly index.
+- **Current lifecycle position:** Local implementation and validation candidate complete; final receipt, commit, publication, registry, and lane closeout pending.
+
+The product targets a narrow operational pain: staff repeatedly handwrite guest names and room assignments on key packets. This artifact proves engineering readiness locally; it does not prove buyer demand, usage, revenue, or product-market fit.
+
+# 2 Current System State & Architecture Map — ✅ High
+
+The app is a static Vite/TypeScript browser application:
+
+`index.html` → `src/main.ts` → `src/app.ts` → `src/core/rooming-list.ts` → `src/core/packet-model.ts` → lazy `src/core/packet-pdf.ts` → browser object URL → explicit PDF download.
+
+- `src/app.ts` owns the drop/select interaction, processing state, cancellation token, object-URL lifecycle, review/error rendering, and explicit download action.
+- `src/core/rooming-list.ts` decodes and validates one CSV, failing closed for malformed or unsafe input.
+- `src/core/packet-model.ts` applies normalized ordering and the 28-code-point guest / 11-code-point room limits.
+- `src/core/packet-pdf.ts` builds US Letter fold-in inserts and internal staff-index pages with `StandardFonts.Helvetica` and `StandardFonts.HelveticaBold`.
+- No API, server, telemetry, authentication, persistent browser storage, provider, or payment path is part of the current product.
+- Data remains in browser memory; downloads use a temporary object URL that is revoked on replacement, teardown, or stale completion.
+
+# 3 Critical Decisions & Reasoning History — ✅ High
+
+1. **Minimum interaction is governing:** one drop/select starts processing automatically; a clean result exposes one explicit **Download packet PDF** action. Review-blocked data requires correction and replacement, not an in-app mapping wizard.
+2. **Privacy is structural:** room numbers never appear on closed packet faces; they print only inside the fold and in the internal staff index.
+3. **Validation fails closed:** missing, duplicate, ambiguous, sensitive, unsafe, unprintable, and overlong rows cannot produce a packet.
+4. **Typography is deterministic and offline:** use `pdf-lib` standard Helvetica fonts rather than remote or machine-specific fonts.
+5. **Bounds are deliberate:** one CSV, 2 MiB, 2,000 rows, guest labels at 28 code points/three lines, and room labels at 11 code points/two lines.
+6. **Proof is synthetic:** fixtures and deterministic scenarios avoid real guest information.
+7. **Local proof is not publication:** hosted, production, provider, payment, buyer, usage, revenue, and PMF claims remain outside the evidence.
+
+# 4 Recent Work & Iteration Log (High Priority) — ✅ High
+
+- Implemented the CSV parser, packet model, PDF generator, and minimum-interaction controller.
+- Added controller race/cancellation and object-URL lifecycle coverage.
+- Added unit coverage totaling 64 passing tests across four files.
+- Added Playwright E2E coverage for six desktop/tablet/phone light/dark projects.
+- Captured and inspected 11 browser screenshots, including visible focus on the file surface and download action.
+- Generated six deterministic PDFs and rendered 23 total pages for direct inspection.
+- Corrected proof presentation so the download-focus image visibly shows the focused download action.
+- Verified that the overflow staff-index continuation page repeats internal-use warnings, reprint guidance, generation time, headings, and page numbering.
+- Added the dated local completion record and this continuation handoff without intentionally changing source, tests, proof, package, shared state, queue, registry, or Git history.
+
+# 5 Testing, Validation & Quality Framework — ✅ High
+
+Current recorded results:
+
+- Unit: **64/64 passed** in four files.
+- Playwright: **6/6 projects passed** (`desktop-light`, `desktop-dark`, `tablet-light`, `tablet-dark`, `phone-light`, `phone-dark`).
+- Browser proof: **11/11 screenshots inspected**.
+- PDF proof: **6/6 deterministic PDFs generated**.
+- Rendered PDF proof: **23/23 pages inspected**, distributed `2 + 2 + 3 + 6 + 8 + 2`.
+
+Primary commands from the app root:
+
+```sh
+npm run format:check
+npm run lint
+npm run typecheck
+npm run test:unit
+npm run build
+npm run audit
+npm run test:e2e
+npm run proof:pdf
+```
+
+The final continuation agent must use the secret-safe launcher required by `/Users/fortunevieyra/AGENTS.md`. Playwright is the only E2E framework; Cypress is not used for E2E. Direct visual inspection remains required because a passing automated gate alone does not validate packet legibility, folds, internal warnings, or responsive composition.
+
+# 6 Debugging History & Failure Modes — ✅ High
+
+- **Stale async processing:** A later CSV can supersede an earlier read/PDF generation. The controller uses a monotonically increasing token and destroys/revokes stale URLs.
+- **Object-URL leakage:** The current URL is revoked before replacement, on stale completion, on teardown, and before unload.
+- **Review leakage:** Any notice blocks PDF generation; no partial or “best effort” packet is emitted.
+- **Unsafe closed-face content:** The model/PDF boundary keeps room numbers inside folds and on the internal index only.
+- **Index overflow context:** Continuation pages repeat the internal-only security banner, reprint warning, timestamp, column headings, and pagination; preserve that behavior.
+- **False focus proof:** A focus screenshot is insufficient unless the intended control visibly carries the focus indicator.
+- **False release completion:** Local screenshots/tests do not prove publication, a final SHA, production behavior, provider behavior, payments, or demand.
+
+# 7 Established Processes & Effective Patterns — ✅ High
+
+- Start with the smallest end-to-end user contract and enforce it in controller tests and Playwright.
+- Keep parsing, modeling, and PDF construction pure where possible; inject browser/time/PDF dependencies into the controller.
+- Use fixed synthetic fixtures and an injected timestamp for deterministic PDF proof.
+- Pair automated assertions with direct inspection of every release screenshot and rendered PDF page.
+- Treat each browser project as a required gate, not optional coverage.
+- Preserve immutable evidence between final validation and commit; rerun affected validation whenever proof or source changes.
+- Keep shared lane/registry mutation separate from app-local implementation work.
+
+# 8 Risks, Technical Debt & Strict Preservation Rules — ✅ High
+
+- **Publication gap:** No commit or public remote currently anchors the proof.
+- **Receipt gap:** No final SHA-bound validation receipt exists.
+- **External evidence gap:** There is no hosted, production, provider, payment, or demand evidence.
+- **Sensitive-data risk:** Never add a real guest rooming list to fixtures, screenshots, logs, PDFs, commits, or issues.
+- **Contract regression risk:** Do not add Run/Continue/Next, field mapping, authentication, onboarding, or result-navigation steps.
+- **Privacy regression risk:** Do not print room numbers on closed packet faces.
+- **Limit regression risk:** Preserve 28 guest / 11 room code-point caps and their line limits unless a new proof-backed product decision explicitly replaces them.
+- **Font/network regression risk:** Preserve `StandardFonts` and local-only processing; do not introduce remote fonts, analytics, or implicit network calls.
+- **Testing-policy rule:** Playwright is E2E-only; Cypress, if ever introduced, is component-only.
+- **State safety:** Do not edit central registry, lane state, or queue until publication prerequisites exist and the automation guard permits the write.
+
+# 9 Key Artifacts & References — ✅ High
+
+- Product record: `docs/key-packet-press/2026-07-27-completion.md`
+- Prior status snapshot: `docs/key-packet-press/completion-status.md`
+- Product contract: `docs/key-packet-press/product.md`
+- Architecture: `docs/key-packet-press/architecture.md`
+- Data contract: `docs/key-packet-press/data-contract.md`
+- Privacy and limits: `docs/key-packet-press/privacy-safety-limits.md`
+- Core controller: `src/app.ts`
+- CSV parser: `src/core/rooming-list.ts`
+- Packet model: `src/core/packet-model.ts`
+- PDF generator: `src/core/packet-pdf.ts`
+- Unit tests: `tests/unit/`
+- E2E test: `tests/e2e/key-packet-press.spec.ts`
+- Browser proof: `proof/browser/`
+- PDF proof: `proof/pdf/`
+- Claim: `/Users/fortunevieyra/Documents/Github/ai-projects/docs/1000-apps-100-days/registry/claims/20260727T172616-0700-lane16-key-packet-press.md`
+- Home execution rules: `/Users/fortunevieyra/AGENTS.md`
+- Post-task handoff rule: `/Users/fortunevieyra/.codex/rules/post-chat-handoff.md`
+
+# 10 Next Steps & Prioritized Backlog — ✅ High
+
+1. **P1 — Final receipt:** Run all required gates against the exact intended commit state and create the validation receipt.
+2. **P1 — Commit/publication:** Commit, record the local SHA, publish, and verify matching public remote readback.
+3. **P1 — Program closeout:** Under the automation guard, update the registry and lane state/queue with the verified public URL and SHA.
+4. **P2 — Post-publication smoke check, if the lane protocol requires one:** Verify public repository completeness. Do not reinterpret repository publication as a hosted app deployment.
+5. **P3 — Demand research:** Treat outreach, buyer interviews, adoption, revenue, and PMF as separate future evidence, not release validation.
+
+# 11 Continuation & Working Style Instructions — ✅ High
+
+- Read `/Users/fortunevieyra/AGENTS.md`, `/Users/fortunevieyra/.codex/CODEX_SELF_LEARNING_SYSTEM.md`, and the relevant automation-guard instructions before execution.
+- Use `/Users/fortunevieyra/.codex/bin/codex-secret-safe-exec.py` for every terminal command.
+- Re-read Git and shared state before any mutation; preserve concurrent/unrelated work.
+- Do not use a Git worktree unless the user explicitly overrides the home rule.
+- Use `apply_patch` for documentation or source edits.
+- Keep commentary concise and evidence-led.
+- Never weaken a gate to make the release pass.
+- If source, tests, or proof change, update the completion record/receipt and rerun validation in proportion to the change.
+- Before task completion or context compaction, refresh this handoff under the home-scope rule.
+
+# 12 Confidence & Freshness Assessment — ✅ High
+
+- **High confidence:** Current source architecture, minimum-interaction behavior, local-only boundary, 28/11 caps, `StandardFonts`, synthetic fixture use, unit count, Playwright project count, screenshot count, PDF count, and rendered-page count were read from the current app tree and proof inventory.
+- **High confidence:** All 11 browser screenshots and all 23 rendered PDF pages are recorded as inspected; the corrected download-focus and overflow continuation artifacts were directly rechecked after regeneration.
+- **High confidence:** No hosted, production, provider, payment, demand, public GitHub, final SHA, validation receipt, registry-completion, or lane-completion proof exists in this handoff.
+- **Freshness:** This handoff reflects the local workspace on 2026-07-27. Re-read Git status, proof timestamps, final gate output, automation claim, and central shared state before any publication or closeout mutation.
