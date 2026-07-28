@@ -4,10 +4,11 @@ Key Packet Press turns one finalized rooming-list CSV into a printable PDF conta
 fold-in key-packet inserts and a staff-only assembly index. It runs as a local browser tool: the CSV
 is read in browser memory, and the application code does not upload it or call an external API.
 
-This repository is currently a pre-release implementation. It has no public release, hosted
-deployment, final commit SHA, or remote SHA yet. See
-[the current completion status](docs/key-packet-press/completion-status.md) before treating it as
-release-ready.
+The validated source release is public at
+[ownasquare/key-packet-press](https://github.com/ownasquare/key-packet-press). GitHub publication is
+source-distribution proof, not a hosted application or production deployment. See
+[the current completion status](docs/key-packet-press/completion-status.md) for exact validation
+and publication evidence.
 
 ## What it does
 

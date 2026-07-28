@@ -104,10 +104,10 @@ This record proves a local implementation and local validation candidate only.
 | Production behavior | Not proven |
 | External provider behavior | Not applicable and not proven |
 | Payment behavior | Not implemented and not proven |
-| Public GitHub publication | Pending |
+| Public GitHub publication | Public at `https://github.com/ownasquare/key-packet-press` |
 | Validated implementation commit | `2259fbe487f9b24cca42fd92045081fe14ae72e9` |
 | Validation receipt | Present at `proof/validation-receipt.json` |
-| Remote SHA/readback | Pending |
+| Publication checkpoint | Local and remote `c825f9a7fcfed0369325468f8b7bf0e3e6d45867`, default branch `main` |
 | Buyer demand, usage, revenue, or product-market fit | Not proven |
 
 ## Commit and publication evidence
@@ -115,7 +115,10 @@ This record proves a local implementation and local validation candidate only.
 - Local branch: `main`.
 - Validated implementation commit: `2259fbe487f9b24cca42fd92045081fe14ae72e9`.
 - Validation receipt: `proof/validation-receipt.json`.
-- Push/public repository evidence: pending.
+- Public repository: `https://github.com/ownasquare/key-packet-press`.
+- Publication checkpoint: local and remote `c825f9a7fcfed0369325468f8b7bf0e3e6d45867`.
+- Visibility/default branch: public / `main`.
+- Global GitHub CLI account switched: no.
 - Central registry update: pending.
 - Lane queue/state completion: pending.
 
@@ -123,10 +126,9 @@ No publication, deployment, registry mutation, queue mutation, or lane-completio
 
 ## Remaining closeout work
 
-1. Commit the validation receipt and current documentation checkpoint.
-2. Publish to the intended public GitHub remote and verify remote SHA/readback.
-3. Only after publication proof exists, update the program registry and lane state/queue using
-   their governing automation protocol.
+1. Commit and push this publication-documentation checkpoint, then verify its matching final
+   local/remote SHA.
+2. Update the program registry and lane state/queue using their governing automation protocol.
 
 ## Files added by this documentation slice
 

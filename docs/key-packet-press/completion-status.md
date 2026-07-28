@@ -2,7 +2,9 @@
 
 - Status date: 2026-07-27
 - Validated implementation commit: `2259fbe487f9b24cca42fd92045081fe14ae72e9`
-- Release status: local release candidate validated; public GitHub publication pending
+- Publication checkpoint: `c825f9a7fcfed0369325468f8b7bf0e3e6d45867`
+- Public repository: <https://github.com/ownasquare/key-packet-press>
+- Release status: validated public source release; not a hosted or production application
 
 ## Scope completed
 
@@ -71,8 +73,9 @@ inspected. No real guest or production data was used.
 | Release-validation report | Present at `proof/validation-report.md` |
 | Validation receipt | Present at `proof/validation-receipt.json`; binds validated source commit |
 | Validated implementation commit | `2259fbe487f9b24cca42fd92045081fe14ae72e9` |
-| Public GitHub repository | Not established |
-| Remote SHA readback | Not available |
+| Public GitHub repository | `https://github.com/ownasquare/key-packet-press`, public |
+| Publication checkpoint SHA | Local and remote `c825f9a7fcfed0369325468f8b7bf0e3e6d45867` |
+| Default branch | `main` |
 | Hosted deployment | None established |
 | Production behavior | None established |
 | Provider integration | Not applicable to current local core; none established |
@@ -82,7 +85,6 @@ inspected. No real guest or production data was used.
 
 ## Remaining release work
 
-1. Commit this app-owned receipt and documentation checkpoint on `main`.
-2. Publish through the authorized scoped helper, then verify public visibility, default branch, and
-   matching local/remote SHA.
-3. Complete the authorized registry, lane, queue, automation-memory, and handoff closeout.
+1. Commit and push this publication-documentation checkpoint, then read back the new matching final
+   local/remote SHA.
+2. Complete the authorized registry, lane, queue, automation-memory, and handoff closeout.

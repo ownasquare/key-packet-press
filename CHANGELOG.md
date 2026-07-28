@@ -1,12 +1,9 @@
 # Changelog
 
-All notable changes will be recorded in this file. The project intends to follow
-[Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and Semantic Versioning after its first
-public release.
+All notable changes will be recorded in this file. The project follows
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and Semantic Versioning.
 
-Package metadata currently uses version `0.1.0`, but no public release, tag, or final commit exists.
-
-## Unreleased
+## [0.1.0] - 2026-07-27
 
 ### Added
 
@@ -25,7 +22,9 @@ Package metadata currently uses version `0.1.0`, but no public release, tag, or 
 - Focused product, architecture, data-contract, privacy-safety, monetization, and completion
   documentation.
 
-### Not yet released
+### Evidence boundary
 
-- Final release validation, screenshot and rendered-PDF inspection, validation receipts, commit and
-  SHA evidence, public GitHub publication, and hosted or production proof remain pending.
+- Local validation, browser and rendered-PDF inspection, an app-owned validation receipt, and public
+  GitHub source publication are present.
+- No hosted application, production deployment, provider integration, payment, revenue, buyer,
+  usage, or demand proof is claimed.
